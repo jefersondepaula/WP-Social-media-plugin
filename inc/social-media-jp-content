@@ -1,0 +1,14 @@
+<?php
+
+
+/**
+ * Filters the post content.
+ *
+ * @param string $content Content of the current post.
+ * @return string Content of the current post.
+ */
+
+add_filter('the_content', function( string $content ) {        
+    echo $content;    
+    require_once(SOCIAL_MEDIA_JP_ABSPATH.'inc/templates/content-template.php');
+} );

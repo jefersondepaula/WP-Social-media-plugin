@@ -1,0 +1,22 @@
+<?php
+
+
+
+/**
+ * Fires before the administration menu loads in the admin.
+ *
+ * @param string $context Empty context.
+ */
+function jp_action_admin_menu(string $context) : void {
+    add_options_page('Register your social media', 'Social media links', 'manage_options', 'Social Media', function(){
+        require_once(SOCIAL_MEDIA_JP_ABSPATH.'/inc/templates/settings-template-form.php');
+    });
+}
+
+add_action('admin_menu','jp_action_admin_menu' );
+
+function jp_register_settings_social_media() {
+    register_setting('jp-social-settings', 'jp-social-links');
+}
+
+add_action('admin_init', 'jp_register_settings_social_media');
